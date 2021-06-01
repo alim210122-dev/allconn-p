@@ -1,0 +1,63 @@
+spring:
+  application.name: allconnp-api
+  autoconfigure.exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    #    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Seoul
+    locale: ko_KR
+    default-property-inclusion: non_null
+    deserialization.fail_on_unknown_properties: false
+
+server:
+  port: 10000
+  error:
+    whitelabel:
+      enabled: false
+  tomcat:
+    accept-count: 128
+    uri-encoding: UTF-8
+    #    min-spare-threads: 32
+    #    max-threads: 128
+    accesslog:
+      enabled: true
+      prefix: api-access
+      rotate: true
+      rename-on-rotate: true
+      request-attributes-enabled: true
+
+alim:
+  health-check.url: /monitor/l7check
+  request-logging-filter:
+    enabled: true # filter 활성화 여부
+    include-query-string: true # query string 포함 여부
+    include-headers: true # header 포함 여부
+    include-client-info: true # client 정보 포함 여부
+    include-payload: true # body 포함 여부
+    max-payload-length: 1000000 # 로그 남길 body의 최대 길이
+    after-message-prefix: "REQUEST: " # 로그 메세지 접두사
+    after-message-suffix: "" # 로그 메세지 접미사
+    log-level: INFO # 로그 레벨
+    conditions:
+      loggable-http-status: 200 # 로그를 남기기 시작할 http status code
+      include-uri-patterns:
+        - /** # 로그를 남길 URI(ant pattern) 목록
+      exclude-uri-patterns: # 로그를 남기지 않을 URI(ant pattern) 목록
+        - /monitor/**
+
+management:
+  health:
+    type: memory
+    defaults.enabled: false
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    root: info
+    jdbc: off
+    jdbc.sqlonly: off
+    jdbc.resultsettable: off
+    jdbc.sqltiming: debug
+    com.alim.allconnp: debug
+    com.alim.starter: debug
+    org.springframework.boot.autoconfigure.logging: info

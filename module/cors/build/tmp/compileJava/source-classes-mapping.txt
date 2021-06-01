@@ -1,0 +1,2 @@
+com/alim/starter/filter/AllowedOriginsConfig.java
+ com.alim.starter.filter.AllowedOriginsConfig

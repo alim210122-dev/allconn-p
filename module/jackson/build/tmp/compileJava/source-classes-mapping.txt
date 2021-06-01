@@ -1,0 +1,3 @@
+com/alim/starter/json/JacksonConfig.java
+ com.alim.starter.json.JacksonConfig
+ com.alim.starter.json.JacksonConfig$1

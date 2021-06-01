@@ -1,0 +1,20 @@
+{
+  "properties": [
+    {
+      "name": "management.health.type",
+      "type": "com.alim.starter.healthcheck.healthchecker.HealthCheckerType",
+      "description": "헬스체크 타입(memory, file)",
+      "defaultValue": "memory"
+    },
+    {
+      "name": "management.health.file-path",
+      "type": "java.lang.String",
+      "description": "파일 체크의 경우 파일 절대 경로"
+    },
+    {
+      "name": "alim.health-check.url",
+      "type": "java.lang.String",
+      "description": "헬스체크 경로"
+    }
+  ]
+}

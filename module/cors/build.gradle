@@ -1,0 +1,10 @@
+dependencies {
+    annotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
+
+    implementation ('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+}
+
+jar.enabled = true
+bootJar.enabled = false

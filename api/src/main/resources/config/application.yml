@@ -1,0 +1,25 @@
+build.phase: local
+
+spring:
+  profiles:
+    group:
+      local: common,develop-datasource
+  pid.file: allconnp-api.pid
+  devtools:
+    livereload:
+      enabled: true
+
+server:
+  tomcat:
+    accesslog:
+      directory: /Users/danielkim/logs
+
+alim:
+  cors:
+    allowed:
+      origins:
+        - http://localhost:3000
+
+logging:
+  file:
+    name: /Users/danielkim/logs/api.log
