@@ -1,4 +1,0 @@
-com/alim/allconnp/web/config/WebConfiguration.java
- com.alim.allconnp.web.config.WebConfiguration
-com/alim/allconnp/web/WebApplication.java
- com.alim.allconnp.web.WebApplication
