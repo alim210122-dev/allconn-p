@@ -3,18 +3,18 @@ build.phase: alpha
 server:
   tomcat:
     accesslog:
-      directory: /Users/danielkim/logs/allconnp-api
+      directory: /home/alim/logs/allconnp-api
 
 spring:
   pid:
-    file: /Users/danielkim/logs/pid/allconnp-api.pid
+    file: /home/alim/logs/pid/allconnp-api.pid
 
 alim:
   cors:
     allowed:
       origins:
-        - http://alpha-api.allconnp.com:10000
+        - http://alpha.allconnp.com:3000
 
 logging:
   file:
-    name: /Users/danielkim/logs/allconnp-api/api.log
+    name: /home/alim/logs/allconnp-api/api.log
