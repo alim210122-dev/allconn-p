@@ -1,10 +1,10 @@
 // 기능 추가
-import React, {useState, } from 'react';
+import React, {useState,useEffect } from 'react';
 import PageTitle from '../../components/PageTitle';
 import {    Row,Col,} from 'reactstrap';
 import { useSelector, useDispatch ,shallowEqual } from 'react-redux';
 import axios from "axios";
-
+import * as API from './api';
 
 // 컴포넌트 추가
 import SearchForm from './SearchForm';
@@ -22,6 +22,7 @@ const MainForm = () => {
     const [list, setList] = useState(companyList);
     const [filterData, setFilterData] = useState(slimCompanyList);
 
+
     const showCompanyList = () => {
         const filteredList = [];
         const newList = list.map(function(obj){
@@ -34,23 +35,14 @@ const MainForm = () => {
         return filteredList;
     }
 
-    const AxiosApi = () => {
-        const url = "/api/company/alim/partner";
-        const header = {
-            headers: {
-                Authorization: `eyJyZWdEYXRlIjoxNjIyNzg0MzUyMTYzLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJleHAiOjE2MjUzNzYzNTIsImVtYWlsIjoicm9wZXplQGdtYWlsLmNvbSJ9.eT37kOIm-lswh9jelaPMFxB2xf_NJRV5SedMjcVIPWg`
-            }
-        }
-        axios.get(url, header)
-            .then(function(response) {
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function(error) {
-                console.log("실패");
-            })
-    }
+    ;
 
-    AxiosApi();
+    useEffect(() => {
+
+        return () => {
+
+        }
+    }, []);
 
 
 

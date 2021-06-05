@@ -8,6 +8,9 @@ import Company from './company/reducers';
 import Counter from  './count/counter';
 import Todos from  './count/todos';
 import productCode from './productCode/reducers';
+import partnerCode from './partnerCompany/partner';
+
+
 
 export default combineReducers({
     Auth,
@@ -17,5 +20,6 @@ export default combineReducers({
     Counter,
     Todos,
     productCode,  // 제품코드 생성
+    partnerCode,  // 거래처 등록
     
 });
