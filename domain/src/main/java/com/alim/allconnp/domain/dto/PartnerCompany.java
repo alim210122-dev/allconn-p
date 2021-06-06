@@ -49,6 +49,8 @@ public class PartnerCompany implements Serializable {
 
     private String remark;
 
+    private Boolean isEnable;
+
     private String createdId;
 
     @JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")

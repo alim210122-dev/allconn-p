@@ -7,7 +7,7 @@ server:
 
 spring:
   pid:
-    file: /home/alim/logs/pid/allconnp-api.pid
+    file: /home/alim/logs/allconnp-api.pid
 
 alim:
   cors:

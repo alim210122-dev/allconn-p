@@ -64,6 +64,10 @@ public class Company extends AbstractAudit implements Serializable {
 
     @Column(name = "remark")
     private String remark;
+
+    @Column(name = "is_enable")
+    private Boolean isEnable;
+
 //
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", orphanRemoval = true)
 //    private List<CompanyEmployee> companyEmployees = new ArrayList<>();

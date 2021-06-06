@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -17,9 +18,13 @@ public class GlobalExceptionHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(Exception.class)
-    public ApiRuntimeException internalException(HttpServletRequest request, Exception e) {
+    public ExceptionMessage internalException(HttpServletRequest request, HttpServletResponse response, Exception e) {
         printLog(request, e);
-        return new ApiRuntimeException("Unknown Exception is occurred");
+        response.setStatus(AllconnpHttpStatus.UNKNOWN_ERROR.code());
+        return ExceptionMessage.builder()
+                .errorCode(AllconnpHttpStatus.UNKNOWN_ERROR.code())
+                .errorMessage(AllconnpHttpStatus.UNKNOWN_ERROR.message())
+                .build();
     }
 
     @ExceptionHandler(RuntimeException.class)
