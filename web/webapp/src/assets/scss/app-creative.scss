@@ -1,0 +1,92 @@
+/*
+Template Name: Hyper - React Js Admin Dashboard Template
+Version: 2.0.0
+Author: CoderThemes
+Email: support@coderthemes.com
+File: Main Css File
+*/
+
+//Core files
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "src/assets/scss/config/creative/variables";
+@import "src/assets/scss/config/creative/custom-variables";
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+
+// Structure
+@import "src/assets/scss/custom/structure/general";
+@import "src/assets/scss/custom/structure/left-menu";
+@import "src/assets/scss/custom/structure/topbar";
+@import "src/assets/scss/custom/structure/right-sidebar";
+@import "src/assets/scss/custom/structure/page-head";
+@import "src/assets/scss/custom/structure/footer";
+// horizontal nav
+@import "src/assets/scss/custom/structure/horizontal-nav";
+
+
+//Fonts
+@import "src/assets/scss/custom/fonts/nunito";
+
+
+//Components
+@import "src/assets/scss/custom/components/mixins";
+@import "src/assets/scss/custom/components/accordions";
+@import "src/assets/scss/custom/components/avatar";
+@import "src/assets/scss/custom/components/breadcrumb";
+@import "src/assets/scss/custom/components/buttons";
+@import "src/assets/scss/custom/components/badge";
+@import "src/assets/scss/custom/components/card";
+@import "src/assets/scss/custom/components/dropdown";
+@import "src/assets/scss/custom/components/forms";
+@import "src/assets/scss/custom/components/modal";
+@import "src/assets/scss/custom/components/nav";
+@import "src/assets/scss/custom/components/pagination";
+@import "src/assets/scss/custom/components/popover";
+@import "src/assets/scss/custom/components/print";
+@import "src/assets/scss/custom/components/progress";
+@import "src/assets/scss/custom/components/reboot";
+@import "src/assets/scss/custom/components/ribbons";
+@import "src/assets/scss/custom/components/switch";
+@import "src/assets/scss/custom/components/tables";
+@import "src/assets/scss/custom/components/type";
+@import "src/assets/scss/custom/components/utilities";
+@import "src/assets/scss/custom/components/widgets";
+@import "src/assets/scss/custom/components/social";
+@import "src/assets/scss/custom/components/steps";
+@import "src/assets/scss/custom/components/preloader";
+@import "src/assets/scss/custom/components/hero";
+
+
+//Pages
+@import "src/assets/scss/custom/pages/authentication";
+@import "src/assets/scss/custom/pages/components-demo";
+@import "src/assets/scss/custom/pages/error";
+@import "src/assets/scss/custom/pages/faq";
+@import "src/assets/scss/custom/pages/maintenance";
+@import "src/assets/scss/custom/pages/tasks";
+@import "src/assets/scss/custom/pages/email";
+@import "src/assets/scss/custom/pages/timeline";
+
+
+// Vendors
+@import "./node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min";
+
+
+// Plugins
+@import "src/assets/scss/custom/plugins/apexcharts";
+@import "src/assets/scss/custom/plugins/britechart";
+@import "src/assets/scss/custom/plugins/calendar";
+@import "src/assets/scss/custom/plugins/chartjs";
+@import "src/assets/scss/custom/plugins/datatable";
+@import "src/assets/scss/custom/plugins/datepicker";
+@import "src/assets/scss/custom/plugins/draft-wysiwyg";
+@import "src/assets/scss/custom/plugins/dropzone";
+@import "src/assets/scss/custom/plugins/maps";
+@import "src/assets/scss/custom/plugins/metisMenu";
+@import "src/assets/scss/custom/plugins/rangeslider";
+@import "src/assets/scss/custom/plugins/react-select";
+@import "src/assets/scss/custom/plugins/slimscroll";
+@import "src/assets/scss/custom/plugins/simplemde";
+@import "src/assets/scss/custom/plugins/typehead";
+@import "src/assets/scss/custom/plugins/frappe-gantt";
