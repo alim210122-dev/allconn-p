@@ -1,17 +1,41 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader} from "reactstrap";
+import axios from "axios";
 
 const CodeModal = ({modal, setModal, clickedData}) => {
 
+  const [values, setValues] = useState({code1: '', name1: '', idx: ''})
 
-  const [values , setValues] = useState(clickedData)
   const handleChange = (event) => {
-    const { name, value } = event.target
-    setValues({ ...values, [name]: value })
+    const {name, value} = event.target
+    setValues({...values, [name]: value})
   }
-  const toggle = () => {
+  const toggle = (e, text) => {
+    e.preventDefault();
     setModal(!modal)
+
   }
+  const updateAPI = async (e) => {
+    const updatedValue = values;
+    await axios.post('/code/codeMaster/editFirstClassCode', updatedValue)
+    .then((response) => {
+      console.log(response.config.data)
+      toggle(e)
+    })
+    .catch((err) => console.log(err));
+  }
+  const deleteAPI = async (e) => {
+    await axios.post('/code/codeMaster/deleteFirstClassCode', values)
+    .then((response) => {
+      toggle(e)
+      console.log('RESPONSE : ' + JSON.stringify(response))
+    })
+    .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    setValues(clickedData)
+  }, [clickedData])
 
   return (
       <>
@@ -26,14 +50,11 @@ const CodeModal = ({modal, setModal, clickedData}) => {
                 <input
                     className="form-control"
                     type="text"
-                    name="companyName"
-                    placeholder="Michael Zenaty"
-                    value={values.companyName}
+                    name="code1"
+                    placeholder="코드를 입력하세요"
+                    value={values.code1}
                     onChange={handleChange}
                 />
-              </div>
-              <div>
-
               </div>
               <div className="form-group">
                 <label htmlFor="name">명칭</label>
@@ -41,35 +62,18 @@ const CodeModal = ({modal, setModal, clickedData}) => {
                     className="form-control"
                     type="text"
                     id="emailaddress"
+                    name="name1"
+                    value={values.name1}
                     required=""
-                    placeholder="john@deo.com"
+                    placeholder="명칭을 입력하세요"
+                    onChange={handleChange}
                 />
               </div>
-
-              <div className="form-group">
-                <label htmlFor="remark">비고</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    required=""
-                    id="password"
-                    placeholder="Enter your password"
-                />
-              </div>
-
-              <div className="form-group">
-                <div className="custom-control custom-checkbox">
-                  <input type="checkbox" className="custom-control-input" id="customCheck1"/>
-                  <label className="custom-control-label" htmlFor="customCheck1">
-                    I accept <a href="/">Terms and Conditions</a>
-                  </label>
-                </div>
-              </div>
-
+              <p onClick={() => updateAPI()}> API 테스트</p>
               <div className="form-group text-center">
-                <button className="btn btn-primary" type="submit">
-                  Sign Up Free
-                </button>
+                <button className="btn btn-dark" onClick={(e) => updateAPI(e)}>저장</button>
+                {`  `}
+                <button className="btn btn-danger" onClick={(e) => deleteAPI(e)}>삭제</button>
               </div>
             </form>
           </ModalBody>

@@ -9,6 +9,7 @@ import Counter from  './count/counter';
 import Todos from  './count/todos';
 import productCode from './productCode/reducers';
 import partnerCode from './partnerCompany/partner';
+import masterCode from './masterCode/masterCode';
 
 
 
@@ -21,5 +22,5 @@ export default combineReducers({
     Todos,
     productCode,  // 제품코드 생성
     partnerCode,  // 거래처 등록
-    
+    masterCode,   // 마스터 코드 관리 프로그램 개발
 });

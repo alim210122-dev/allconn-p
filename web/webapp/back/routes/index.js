@@ -14,6 +14,9 @@ const salesCode = require('./code/salesCode');
 router.use('/code/salesCode', salesCode);
 
 
+const codeMaster = require('./code/codeMaster');
+router.use('/code/codeMaster', codeMaster);
+
 
 
 

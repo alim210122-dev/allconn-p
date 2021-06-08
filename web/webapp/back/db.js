@@ -4,7 +4,7 @@ var db = mysql.createConnection({
   host: "nodejs-008.cafe24.com",
   port: "3306",
   user: "tywowie",
-  password: "alim123@",
+  password: "testdb3306",
   database: "tywowie",
 });
 
