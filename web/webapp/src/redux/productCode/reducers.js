@@ -186,7 +186,7 @@ export default function productCode(state = initialState, action) {
         case SET_INITIAL_DATA:
             return {...state, mainCode : initialState.mainCode};
         case SET_CLICKED_PRODUCTCODE:
-            return {...state, productInfo : state.sampleCode.filter((v)=> v.productCode == action.v)};
+            return {...state, productInfo : state.sampleCode.filter((v)=> v.productCode === action.v)};
         case SET_WORD_FOR_FILTER:
             return {...state, filterCompanyList : action.a};
 

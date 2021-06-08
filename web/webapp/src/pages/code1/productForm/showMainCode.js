@@ -1,19 +1,19 @@
-import React,{useState,useEffect} from 'react';
-import { Table, Badge ,Input} from 'reactstrap';
+import React, {useEffect, useState} from 'react';
+import {Badge, Table} from 'reactstrap';
 import {setClickedData} from 'redux/productCode/reducers';
-import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import {shallowEqual, useDispatch, useSelector} from 'react-redux';
 
 const ShowMainCode = (props) => {
 
     // props 정의하기
-    const {maincode, setFilterData,filterData,sampleCode,filterDataProduct } = props;
+    const {maincode, setFilterData, filterData, sampleCode, filterDataProduct} = props;
 
     // redux State 값 가져오기
-    const { clickedProductCode,productInfo,filterCompanyList } = useSelector(
+    const {clickedProductCode, productInfo, filterCompanyList} = useSelector(
         state => ({
-            clickedProductCode  : state.productCode.clickedProductCode,
-            productInfo         : state.productCode.productInfo,
-            filterCompanyList   : state.productCode.filterCompanyList,
+            clickedProductCode: state.productCode.clickedProductCode,
+            productInfo: state.productCode.productInfo,
+            filterCompanyList: state.productCode.filterCompanyList,
         }),
         shallowEqual
     );
@@ -28,40 +28,35 @@ const ShowMainCode = (props) => {
         dispatch(setClickedData(text));
     };
 
-
-    
     // 검색 필터 만들기 (거래처가 선택된 경우에 필터링 되는 함수)
-    const filterProductList = (ArrayList,filterData,filterDataProduct) => {
+    const filterProductList = (ArrayList, filterData, filterDataProduct) => {
         const duplicateArray = ArrayList;
-        const filteredArray = duplicateArray.filter((v)=> v.companyCode === filterData);
+        const filteredArray = duplicateArray.filter((v) => v.companyCode === filterData);
 
-        if(filterDataProduct == null){
+        if (filterDataProduct == null) {
             return filteredArray;
-        }else {
-            const filteredArray2 = filteredArray.filter((v)=> v.productName.indexOf(filterDataProduct)> -1);
+        } else {
+            const filteredArray2 = filteredArray.filter((v) => v.productName.indexOf(filterDataProduct) > -1);
             return filteredArray2;
         }
     }
 
     // 검색 필터 만들기 (거래처 구분 없이, 제품명이 검색이 되도록하는 필터)
-    const filterProductList2 = (ArrayList,filterCompanyList) => {
+    const filterProductList2 = (ArrayList, filterCompanyList) => {
         const duplicateArray = ArrayList;
-        const filteredArray = duplicateArray.filter((v)=> v.productName.indexOf(filterCompanyList)> -1);
+        const filteredArray = duplicateArray.filter((v) => v.productName.indexOf(filterCompanyList) > -1);
         return filteredArray;
     }
 
-
-
-
-    useEffect(()=> {
-        if(filterCompanyList === null){
-            setData(filterProductList(sampleCode,filterData,filterDataProduct));
-        }else{
-            setData(filterProductList2(sampleCode,filterCompanyList))
+    useEffect(() => {
+        if (filterCompanyList === null) {
+            setData(filterProductList(sampleCode, filterData, filterDataProduct));
+        } else {
+            setData(filterProductList2(sampleCode, filterCompanyList))
         }
-    },[filterData,filterDataProduct,filterCompanyList])
+    }, [filterData, filterDataProduct, filterCompanyList])
 
-    return(
+    return (
         <div>
             {clickedProductCode}
             <Table size="sm" hover>
@@ -76,16 +71,16 @@ const ShowMainCode = (props) => {
                     <th></th>
                 </tr>
                 </thead>
-                <tbody >
+                <tbody>
                 {data && data.map((v) => {
-                    return(
-                        <tr key = {v.productCode+v.productName} onClick={()=> handleClickedData(v.productCode)} >
-                            <td style={{textAlign:"center"}}>{v.productCode}</td>
-                            <td >{v.productName}</td>
-                            <td style={{textAlign:"center"}}>{v.startDate}</td>
-                            <td style={{textAlign:"center"}}>{v.endDate}</td>
-                            <td style={{textAlign:"center"}}>{v.manager}</td>
-                            <td className="badgePointer" style={{textAlign:"center"}}>
+                    return (
+                        <tr key={v.productCode + v.productName} onClick={() => handleClickedData(v.productCode)}>
+                            <td style={{textAlign: "center"}}>{v.productCode}</td>
+                            <td>{v.productName}</td>
+                            <td style={{textAlign: "center"}}>{v.startDate}</td>
+                            <td style={{textAlign: "center"}}>{v.endDate}</td>
+                            <td style={{textAlign: "center"}}>{v.manager}</td>
+                            <td className="badgePointer" style={{textAlign: "center"}}>
                                 {/*<Badge color="secondary" pill onClick={()=>setFilterData(v.code)}>수정</Badge>*/}
                                 <Badge color="danger" pill>삭제</Badge>
                             </td>
@@ -98,4 +93,4 @@ const ShowMainCode = (props) => {
     )
 }
 
-export default ShowMainCode ;
+export default ShowMainCode;

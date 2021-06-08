@@ -1,8 +1,7 @@
 // 기능 추가
-import React, {useState, } from 'react';
+import React from 'react';
 import PageTitle from '../../components/PageTitle';
 import {    Row,Col,} from 'reactstrap';
-import { useSelector, useDispatch ,shallowEqual } from 'react-redux';
 
 // 컴포넌트 추가
 import ShowTable from './ShowTable';

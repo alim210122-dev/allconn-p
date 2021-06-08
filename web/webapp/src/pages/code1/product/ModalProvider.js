@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import PropTypes from 'prop-types';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const {Provider, Consumer} = React.createContext({});

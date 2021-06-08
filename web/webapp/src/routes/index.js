@@ -43,7 +43,7 @@ const Kanban = React.lazy(() => import('../pages/apps/Tasks/Board/'));
 // PPIS_PROJECT [공통관리]
 const PartnerCompany = React.lazy(() => import('../pages/partnerCompany/index'));
 const AddPartner     = React.lazy(() => import('../pages/partner/index'));
-const MainCode1       = React.lazy(() => import('../pages/code1/index'));
+const MainCode1       = React.lazy(() => import('../pages/code1/codeMaster/index'));
 const ProductMain       = React.lazy(() => import('../pages/code1/product/main'));
 const ReduxFormat       = React.lazy(() => import('../pages/reduxFormat/index'));
 const ProductCode       = React.lazy(() => import('../pages/code1/productForm/index'));

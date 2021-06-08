@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React  from 'react';
 import {Row, Col, Input, Label, } from 'reactstrap';
 import Select from 'react-select';
 import {setFilterWordFirst} from 'redux/productCode/reducers';
@@ -36,7 +36,7 @@ const SearchForm = (props) => {
     }
 
     const handleFilterDataFirst = (e) => {
-        if(e.target.value == ''){
+        if(e.target.value === ''){
             dispatch(setFilterWordFirst(null));
         }else{
             dispatch(setFilterWordFirst(e.target.value));
