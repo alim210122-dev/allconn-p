@@ -2,10 +2,7 @@ package com.alim.allconnp.domain.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -44,7 +41,8 @@ public class Employee extends AbstractAudit implements Serializable {
     private String birthDate;
 
     @Column(name = "gender")
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private GenderType gender;
 
     @Column(name = "task")
     private String task;

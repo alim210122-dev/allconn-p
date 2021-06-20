@@ -33,6 +33,7 @@ public class CompanyRepositoryImpl implements CompanyRepositoryCustom {
                                                               company.companyClosingDate,
                                                               company.deliveryAddress,
                                                               company.remark,
+                                                              company.isEnable,
                                                               company.createdId,
                                                               company.createdAt,
                                                               company.updatedId,
