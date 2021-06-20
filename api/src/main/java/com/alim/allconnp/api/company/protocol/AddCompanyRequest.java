@@ -1,7 +1,6 @@
 package com.alim.allconnp.api.company.protocol;
 
-import com.alim.allconnp.domain.dto.PartnerCompany;
-import java.util.List;
+import com.alim.allconnp.domain.entity.Company;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,8 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Builder
 @Getter
-public class GetPartnerCompanyResponse {
+public class AddCompanyRequest {
 
-    private List<PartnerCompany> partnerCompanies;
-
+    private Company company;
 }
